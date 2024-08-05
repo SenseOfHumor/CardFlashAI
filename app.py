@@ -1,6 +1,4 @@
 import streamlit as st
-import numpy as np
-import pandas as pd
 import google.generativeai as genai
 from dotenv import load_dotenv
 from NLP import askGemini
@@ -26,7 +24,7 @@ input_pdf = st.file_uploader("Upload your notes as pdf", type=["pdf"])
 
 question_answer = []
 
-if st.button("Generate Flashcards"):
+if st.button("Generate Flashcards",use_container_width=True):
     ## st.caption("Please wait while we generate the flashcards...")
     if input_pdf is not None:
         text = input_pdf_data(input_pdf)
@@ -48,6 +46,7 @@ if response:
     st.caption("Flashcards generated successfully!")
     st.toast("Flashcards generated successfully!")
 
+st.caption("The tool may sometimes run into issues due to the complexity of the input. Please try again if you encounter any errors.")
 tab1, tab2, tab3 = st.tabs(["Flashcards", "About Me", "Copyright"])
 
 with tab1:
@@ -94,29 +93,29 @@ with tab1:
 
 with tab2:
     st.markdown("""
-# About Me
+    # About Me
 
-## 👋 Hi there!
+    ## 👋 Hi there!
 
-My name is **Swapnil** and I'm a Computer Science major at NJIT. I have a passion for building programs involving generative AI that solve real-world problems. Currently, I'm working on my SaaS product and learning full stack development using ReactJS and NextJS.
+    My name is **Swapnil** and I'm a Computer Science major at NJIT. I have a passion for building programs involving generative AI that solve real-world problems. Currently, I'm working on my SaaS product and learning full stack development using ReactJS and NextJS.
 
-Feel free to connect with me on my social platforms:
+    Feel free to connect with me on my social platforms:
 
-- [LinkedIn](https://www.linkedin.com/in/swapnil-deb-3096b2207/)
-- [GitHub](https://github.com/SenseOfHumor)
-- [Devpost](https://devpost.com/swa2314?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav)
+    - [LinkedIn](https://www.linkedin.com/in/swapnil-deb-3096b2207/)
+    - [GitHub](https://github.com/SenseOfHumor)
+    - [Devpost](https://devpost.com/swa2314?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav)
 
----
+    ---
 
-### 🔧 My Current Work:
-- **SaaS Product Development:** Developing a software as a service product aimed at addressing real-world challenges.
-- **Full Stack Development:** Learning and building projects using ReactJS and NextJS to enhance my skills in full stack development.
+    ### 🔧 I'm Currently Working On:
+    - **SaaS Product Development:** Developing a software as a service product aimed at addressing real-world challenges.
+    - **Full Stack Development:** Learning and building projects using ReactJS and NextJS to enhance my skills in full stack development.
 
----
+    ---
 
-Thank you for visiting my profile! Feel free to reach out if you have any questions or collaboration ideas.
+    Thank you for visiting my profile! Feel free to reach out if you have any questions or collaboration ideas.
 
-                """)
+    """)
 
     
 with tab3:
